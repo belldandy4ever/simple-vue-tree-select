@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>vue-simple-tree-select</title>
+  </head>
+  <body>
+    <div id="app">
+        <p>选中项：{{modelData}}</p>
+        <v-tree-select :tree-data="testData" v-model="modelData" :default-chosen="1111"></v-tree-select>
+    </div>
+    <!-- <script src="/dist/build.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <script src="./dist/simple-vue-tree-select.js"></script>
+    <script>
+      const testData = [
+        {
+          "id": 1,
+          "name": "1",
+          "child": [
+            {
+              "id": 11,
+              "name": "1-1",
+              "child": [
+                {
+                  "id": 111,
+                  "name": "1-1-1(无法被选中,可展开)",
+                  "canNotClick": true,
+                  "child": [
+                    {
+                      "id": 1111,
+                      "name": "1-1-1-1",
+                      "child": [
+                        {
+                          "id": 11111,
+                          "name": "1-1-1-1-1"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "2",
+          "child": [
+            {
+              "id": 21,
+              "name": "2-1",
+              "child": [
+                {
+                  "id": 211,
+                  "name": "2-1-1",
+                },
+                {
+                  "id": 212,
+                  "name": "2-1-2",
+                }
+              ]
+            },
+            {
+              "id": 22,
+              "name": "2-2",
+              "child": [
+                {
+                  "id": 221,
+                  "name": "2-2-1",
+                  "child": [
+                    {
+                      "id": 2211,
+                      "name": "2-2-1-1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+      new Vue({
+        el: '#app',
+        data: {
+          testData: testData,
+          modelData:""
+        }
+      })
+      
+
+    </script>
+  </body>
+</html>
